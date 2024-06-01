@@ -53,12 +53,12 @@
             <form action="{% url 'login' %}" method="post">
                 {% csrf_token %}
               <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">User Name</label>
-                <input type="text" class="form-control" name="uname" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <label for="exampleInputEmailLogin" class="form-label">User Name</label>
+                <input type="text" class="form-control" name="uname" id="exampleInputEmailLogin" aria-describedby="emailHelp">
               </div>
               <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" class="form-control" name="pwd" id="exampleInputPassword1">
+                <label for="exampleInputPasswordLogin" class="form-label">Password</label>
+                <input type="password" class="form-control" name="pwd" id="exampleInputPasswordLogin">
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -101,6 +101,6 @@
       {% endfor %}
     </div>
 
-
+    
 
 {% endblock %}
