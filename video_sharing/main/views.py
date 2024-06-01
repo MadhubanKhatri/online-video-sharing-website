@@ -230,14 +230,15 @@ def signup(request):
         mail = request.POST['mail']
         pwd = request.POST['pwd']
         new_user = User.objects.create_user(f'{first_name.lower()}123', mail, pwd)
-        new_user.first_name = first_name
-        new_user.last_name = last_name
+        
         
         if(not first_name or not last_name or not mail or not pwd):
+            messages.error(request, 'Please fill all the fields.')
+        else:
+            new_user.first_name = first_name
+            new_user.last_name = last_name
             new_user.save()
             messages.success(request, 'Account has been created successfully.')
-        else:
-            messages.error(request, 'Please fill all the fields.')
     return redirect('home')
 
 
