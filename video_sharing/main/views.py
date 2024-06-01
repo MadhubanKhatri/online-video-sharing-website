@@ -248,9 +248,11 @@ def user_login(request):
         if request.method == 'POST':
             uname = request.POST['uname']
             pwd = request.POST['pwd']
-
             check_user = authenticate(username = uname, password = pwd)
-            if check_user is not None:
+            
+            if(not uname or not pwd):
+                messages.error(request, 'Please enter username/password.')
+            elif check_user is not None:
                 login(request, check_user)
                 return redirect('home')
             else:
